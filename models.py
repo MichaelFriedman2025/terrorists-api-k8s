@@ -3,8 +3,6 @@ import pandas as pd
 from pydantic import BaseModel,Field
 import io
 
-from db import DB
-
 
 class Validation(BaseModel):
     name: str
