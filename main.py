@@ -9,6 +9,7 @@ app = FastAPI()
 
 @app.post("/top-threats")
 def get_file_of_threats(file:UploadFile = File(...)):
+    db = DB()
     df =read_csv_file(file)
     data = validation_and_conversion(df)
     get_clear_data(data)
@@ -16,5 +17,4 @@ def get_file_of_threats(file:UploadFile = File(...)):
 
 
 if __name__=="__main__":
-    db = DB()
     uvicorn.run(app,host="127.0.0.1",port=8000)
