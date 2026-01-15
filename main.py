@@ -7,12 +7,11 @@ app = FastAPI()
 
 
 
-
 @app.post("/top-threats")
 def get_file_of_threats(file:UploadFile = File(...)):
     df =read_csv_file(file)
     data = validation_and_conversion(df)
-    db.insert_data(get_clear_data(data))
+    get_clear_data(data)
     return data
 
 

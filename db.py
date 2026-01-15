@@ -20,6 +20,6 @@ class DB:
 
 
     def insert_data(self,data):
-            self.colection.insert_many(data)
+        self.colection.insert_many(data)
 
 
