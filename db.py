@@ -1,6 +1,8 @@
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 
-
+load_dotenv() 
 
 class DB:
     def __init__(self):
@@ -9,7 +11,7 @@ class DB:
     @staticmethod
     def connection_to_db():
         try:
-            uri = "mongodb://localhost:27017/"
+            uri = os.getenv("mongodb://localhost:27017/")
             client = MongoClient(uri)
 
             db = client["terrorists"]
